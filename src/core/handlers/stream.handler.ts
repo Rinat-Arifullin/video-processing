@@ -4,7 +4,7 @@ import { IStreamLogger } from "./stream-logger.interface";
 export class StreamHandler {
   constructor(private logger: IStreamLogger) {}
 
-  processOutut(stream: ChildProcessWithoutNullStreams) {
+  processOutput(stream: ChildProcessWithoutNullStreams) {
     stream.stdout.on("data", (data: any) => {
       this.logger.log(data.toString());
     });

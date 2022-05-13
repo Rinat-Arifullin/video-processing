@@ -11,8 +11,8 @@ export class FfmpegBuilder {
     return this;
   }
 
-  setVideoSize(width: number, heigth: number): this {
-    this.options.set("-s", `${width}x${heigth}`);
+  setVideoSize(width: number, height: number): this {
+    this.options.set("-s", `${width}x${height}`);
     return this;
   }
 
@@ -21,8 +21,7 @@ export class FfmpegBuilder {
       throw new Error("Не задан параметр input");
     }
     const args: string[] = ["-i", this.inputPath];
-
-    this.options.forEach(([value, key]) => {
+    this.options.forEach((value, key) => {
       args.push(key);
       args.push(value);
     });

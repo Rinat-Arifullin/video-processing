@@ -9,7 +9,7 @@ export abstract class CommandExecuter<Input> {
     const input = await this.prompt();
     const command = this.build(input);
     const stream = this.spawn(command);
-    this.precessStrem(stream, this.logger);
+    this.processStream(stream, this.logger);
   }
 
   protected abstract prompt(): Promise<Input>;
@@ -17,7 +17,7 @@ export abstract class CommandExecuter<Input> {
   protected abstract spawn(
     command: ICommandExec
   ): ChildProcessWithoutNullStreams;
-  protected abstract precessStrem(
+  protected abstract processStream(
     stream: ChildProcessWithoutNullStreams,
     logger: IStreamLogger
   ): void;

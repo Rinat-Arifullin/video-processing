@@ -49,11 +49,11 @@ export class FfmpegExecuter extends CommandExecuter<IFfmpegInput> {
     return spawn(command, args);
   }
 
-  protected precessStrem(
+  protected processStream(
     stream: ChildProcessWithoutNullStreams,
     logger: IStreamLogger
   ): void {
     const handler = new StreamHandler(logger);
-    handler.processOutut(stream);
+    handler.processOutput(stream);
   }
 }
